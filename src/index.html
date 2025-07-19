@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>UI Kit Dev</title>
+</head>
+<script type="module" src="/build/ui-kit.esm.js"></script>
+
+<body>
+<ui-button variant="primary" onClick="alert('Button clicked!')">
+  <span slot="icon">Icon</span>
+  <span>Click Me</span>
+</ui-button>
+<ui-card
+  heading="Special Offer"
+  shadow="lg"
+  hover-effect
+  description="Limited time offer"
+>
+  <div slot="actions">
+    <ui-button variant="primary">Subscribe</ui-button>
+  </div>
+</ui-card>
+<ui-docs></ui-docs>
+</body>
+</html>

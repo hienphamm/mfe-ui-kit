@@ -1,0 +1,45 @@
+{
+  "name": "ui-kit",
+  "version": "0.0.1",
+  "description": "Stencil Component Starter",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/ui-kit/ui-kit.esm.js",
+  "exports": {
+    ".": {
+      "import": "./dist/ui-kit/ui-kit.esm.js",
+      "require": "./dist/ui-kit/ui-kit.cjs.js"
+    },
+    "./loader": {
+      "import": "./loader/index.js",
+      "require": "./loader/index.cjs",
+      "types": "./loader/index.d.ts"
+    },
+    "./components/*": {
+      "import": "./dist/ui-kit/*.js",
+      "types": "./dist/ui-kit/*.d.ts"
+    }
+  },
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "generate": "stencil generate"
+  },
+  "devDependencies": {
+    "@stencil/core": "^4.36.1",
+    "@stencil/postcss": "^2.1.0",
+    "@stencil/react-output-target": "^1.2.0",
+    "@types/node": "^22.13.5",
+    "puppeteer": "^24.3.0",
+    "stencil-tailwind-plugin": "^2.0.5",
+    "tailwindcss": "^4.1.11"
+  },
+  "license": "MIT"
+}

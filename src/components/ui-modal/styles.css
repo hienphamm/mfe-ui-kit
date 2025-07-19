@@ -1,0 +1,26 @@
+/* Ensure modal is properly layered */
+.ui-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+}
+
+/* Fix for transition issues */
+.fixed {
+  position: fixed;
+}
+
+/* Make sure content is visible */
+.bg-white {
+  background-color: white;
+}
+
+/* Ensure modal is centered */
+.flex.items-center.justify-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
