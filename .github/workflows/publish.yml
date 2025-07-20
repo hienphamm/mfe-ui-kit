@@ -27,37 +27,29 @@ jobs:
 
       - name: Build all packages
         run: pnpm build
-        working-directory: .
 
       - name: Setup .npmrc
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
-      - name: List workspaces
-        run: pnpm -r list
-
-      - name: Bump patch version for mfe-ui-kit
-        run: pnpm --filter mfe-ui-kit version patch --no-git-tag-version
-
-      - name: Bump patch version for mfe-ui-kit-react
-        run: pnpm --filter mfe-ui-kit-react version patch --no-git-tag-version
-
-      - name: Bump patch version for mfe-ui-kit-vue
-        run: pnpm --filter mfe-ui-kit-vue version patch --no-git-tag-version
-
-      - name: Publish mfe-ui-kit
+      - name: Get current version of mfe-ui-kit
+        id: version
+        run: |
+          CURRENT_VERSION=$(node -p "require('./packages/mfe-ui-kit/package.json').version")
+          echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
         working-directory: .
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish mfe-ui-kit-react
-        working-directory: react-wrapper
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Bump versions for all packages
+        run: |
+          NEW_VERSION=$(echo ${{ steps.version.outputs.current_version }} | awk -F. '{$NF = $NF + 1;} 1' | sed 's/ /./g')
+          pnpm --filter mfe-ui-kit version $NEW_VERSION --no-git-tag-version
+          pnpm --filter mfe-ui-kit-react version $NEW_VERSION --no-git-tag-version
+          pnpm --filter mfe-ui-kit-vue version $NEW_VERSION --no-git-tag-version
+        working-directory: .
 
-      - name: Publish mfe-ui-kit-vue
-        working-directory: vue-wrapper
-        run: npm publish
+      - name: Publish packages
+        run: |
+          cd packages/mfe-ui-kit && npm publish
+          cd ../mfe-ui-kit-react && npm publish
+          cd ../mfe-ui-kit-vue && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
