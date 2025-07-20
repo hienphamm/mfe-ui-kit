@@ -25,9 +25,9 @@ export const config: Config = {
       serviceWorker: null,
     },
     reactOutputTarget({
-      componentCorePackage: 'ui-kit',
-      outDir: '../shell/src/components/stencil-generated/index.ts',
-      proxiesFile: '../shell/src/components/stencil-generated/index.ts',
+      componentCorePackage: 'mfe-ui-kit',
+      outDir: '../react-wrapper/src/components.ts',
+      proxiesFile: '../react-wrapper/src/components.ts',
       includeDefineCustomElements: true,
       includePolyfills: false,
       customElementsDir: 'dist/ui-kit',

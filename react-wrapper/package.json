@@ -1,0 +1,10 @@
+{
+  "name": "mfe-ui-kit-react",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "react": "^18.0.0",
+    "mfe-ui-kit": "latest"
+  }
+}

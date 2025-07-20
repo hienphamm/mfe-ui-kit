@@ -1,0 +1,40 @@
+name: Publish UI Kit and React Wrapper
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'stencil/**'
+      - 'react-wrapper/**'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install deps & build
+        run: |
+          yarn install
+          yarn workspace stencil build
+          yarn workspace react-wrapper build
+
+      - name: Publish mfe-ui-kit
+        run: |
+          cd stencil
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish mfe-ui-kit-react
+        run: |
+          cd ../react-wrapper
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
