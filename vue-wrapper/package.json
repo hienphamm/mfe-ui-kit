@@ -14,7 +14,7 @@
   "peerDependencies": {
     "vue": "^3.0.0",
     "vue-router": "^4.0.0",
-    "mfe-ui-kit": "latest"
+    "mfe-ui-kit": "0.0.2"
   },
   "dependencies": {},
   "devDependencies": {
