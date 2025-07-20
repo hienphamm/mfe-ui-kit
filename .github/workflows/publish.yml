@@ -29,6 +29,9 @@ jobs:
         run: pnpm build
         working-directory: .
 
+      - name: Setup .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
       - name: Publish mfe-ui-kit
         working-directory: .
         run: npm publish
