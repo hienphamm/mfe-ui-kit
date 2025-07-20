@@ -40,9 +40,19 @@ jobs:
       - name: Bump versions for all packages
         run: |
           NEW_VERSION=$(echo ${{ steps.version.outputs.current_version }} | awk -F. '{$NF = $NF + 1;} 1' | sed 's/ /./g')
-          pnpm --filter "./" version $NEW_VERSION --no-git-tag-version
-          pnpm --filter "./react-wrapper" version $NEW_VERSION --no-git-tag-version
-          pnpm --filter "./vue-wrapper" version $NEW_VERSION --no-git-tag-version
+
+          # Update root package (mfe-ui-kit)
+          npm version $NEW_VERSION --no-git-tag-version --allow-same-version
+
+          # Update react-wrapper
+          cd react-wrapper
+          npm version $NEW_VERSION --no-git-tag-version --allow-same-version
+          cd ..
+
+          # Update vue-wrapper
+          cd vue-wrapper
+          npm version $NEW_VERSION --no-git-tag-version --allow-same-version
+          cd ..
 
       - name: Publish packages
         run: |
