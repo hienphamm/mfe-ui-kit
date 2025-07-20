@@ -32,11 +32,17 @@ jobs:
       - name: Setup .npmrc
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
-      - name: Bump version
-        run: |
-          pnpm --filter mfe-ui-kit version patch --no-git-tag-version
-          pnpm --filter mfe-ui-kit-react version patch --no-git-tag-version
-          pnpm --filter mfe-ui-kit-vue version patch --no-git-tag-version
+      - name: List workspaces
+        run: pnpm -r list
+
+      - name: Bump patch version for mfe-ui-kit
+        run: pnpm --filter mfe-ui-kit version patch --no-git-tag-version
+
+      - name: Bump patch version for mfe-ui-kit-react
+        run: pnpm --filter mfe-ui-kit-react version patch --no-git-tag-version
+
+      - name: Bump patch version for mfe-ui-kit-vue
+        run: pnpm --filter mfe-ui-kit-vue version patch --no-git-tag-version
 
       - name: Publish mfe-ui-kit
         working-directory: .
