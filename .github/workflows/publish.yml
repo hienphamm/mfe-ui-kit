@@ -34,7 +34,7 @@ jobs:
       - name: Get current version of mfe-ui-kit
         id: version
         run: |
-          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          CURRENT_VERSION=$(node -p "require('package.json').version")
           echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
         working-directory: .
 
