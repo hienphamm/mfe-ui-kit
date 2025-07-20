@@ -28,7 +28,7 @@
     "loader/"
   ],
   "scripts": {
-    "build": "pnpm --filter stencil build && pnpm --filter react-wrapper build && pnpm --filter vue-wrapper build",
+    "build": "pnpm -r run build",
     "start": "stencil build --dev --watch --serve",
     "generate": "stencil generate"
   },
