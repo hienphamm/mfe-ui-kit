@@ -33,7 +33,9 @@ jobs:
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       - name: Bump version
-        run: pnpm version patch --no-git-tag-version
+          pnpm --filter mfe-ui-kit version patch --no-git-tag-version
+          pnpm --filter mfe-ui-kit-react version patch --no-git-tag-version
+          pnpm --filter mfe-ui-kit-vue version patch --no-git-tag-version
 
       - name: Publish mfe-ui-kit
         working-directory: .
