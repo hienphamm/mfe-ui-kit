@@ -19,11 +19,11 @@ jobs:
           node-version: 18
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install deps & build
-        run: |
-          yarn install
-          yarn workspace stencil build
-          yarn workspace react-wrapper build
+      - name: Install deps
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
 
       - name: Publish mfe-ui-kit
         run: |
