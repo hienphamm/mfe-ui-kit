@@ -3,10 +3,6 @@ name: Publish UI Kit and Wrappers
 on:
   push:
     branches: [main]
-    paths:
-      - 'stencil/**'
-      - 'react-wrapper/**'
-      - 'vue-wrapper/**'
 
 jobs:
   publish:
