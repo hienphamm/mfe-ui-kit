@@ -27,8 +27,8 @@ export const config: Config = {
     },
     reactOutputTarget({
       componentCorePackage: 'mfe-ui-kit',
-      outDir: '../react-wrapper/src/components.ts',
-      proxiesFile: '../react-wrapper/src/components.ts',
+      outDir: './react-wrapper/src/components.ts',
+      proxiesFile: './react-wrapper/src/components.ts',
       includeDefineCustomElements: true,
       includePolyfills: false,
       customElementsDir: 'dist/ui-kit',
@@ -36,7 +36,7 @@ export const config: Config = {
     vueOutputTarget({
       componentCorePackage: 'mfe-ui-kit',
       proxiesFile: './vue-wrapper/src/components.ts',
-      outDir: '../vue-wrapper/src/components.ts',
+      outDir: './vue-wrapper/src/components.ts',
       includeDefineCustomElements: true,
     }),
   ],
