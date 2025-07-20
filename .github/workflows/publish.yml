@@ -30,7 +30,7 @@ jobs:
         working-directory: .
 
       - name: Publish mfe-ui-kit
-        working-directory: stencil
+        working-directory: .
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
