@@ -3,6 +3,14 @@
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  ".": {
+    "import": "./dist/ui-kit/ui-kit.esm.js",
+    "require": "./dist/ui-kit/ui-kit.cjs.js"
+  },
+  "./components/*": {
+    "import": "./dist/ui-kit/*.js",
+    "types": "./dist/ui-kit/*.d.ts"
+  },
   "peerDependencies": {
     "react": "^18.0.0",
     "mfe-ui-kit": "workspace:*"

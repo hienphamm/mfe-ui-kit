@@ -4,6 +4,14 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  ".": {
+    "import": "./dist/ui-kit/ui-kit.esm.js",
+    "require": "./dist/ui-kit/ui-kit.cjs.js"
+  },
+  "./components/*": {
+    "import": "./dist/ui-kit/*.js",
+    "types": "./dist/ui-kit/*.d.ts"
+  },
   "files": [
     "dist",
     "src"
