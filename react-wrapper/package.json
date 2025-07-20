@@ -5,7 +5,7 @@
   "types": "dist/index.d.ts",
   "peerDependencies": {
     "react": "^18.0.0",
-    "mfe-ui-kit": "0.0.2"
+    "mfe-ui-kit": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.0.0",
