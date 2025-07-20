@@ -28,7 +28,10 @@
     "loader/"
   ],
   "scripts": {
-    "build": "pnpm -r run build",
+    "build:stencil": "stencil build",
+    "build:react": "pnpm --filter ./react-wrapper build",
+    "build:vue": "pnpm --filter ./vue-wrapper build",
+    "build": "pnpm run build:stencil && pnpm run build:react && pnpm run build:vue",
     "start": "stencil build --dev --watch --serve",
     "generate": "stencil generate"
   },
