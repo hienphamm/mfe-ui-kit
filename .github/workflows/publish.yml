@@ -1,4 +1,4 @@
-name: Publish UI Kit and React Wrapper
+name: Publish UI Kit and Wrappers
 
 on:
   push:
@@ -6,10 +6,12 @@ on:
     paths:
       - 'stencil/**'
       - 'react-wrapper/**'
+      - 'vue-wrapper/**'
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
@@ -24,22 +26,26 @@ jobs:
         with:
           version: 8
 
-      - name: Install deps
+      - name: Install dependencies
         run: pnpm install
 
-      - name: Build
+      - name: Build all packages
         run: pnpm build
 
       - name: Publish mfe-ui-kit
-        run: |
-          cd stencil
-          npm publish
+        working-directory: stencil
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish mfe-ui-kit-react
-        run: |
-          cd ../react-wrapper
-          npm publish
+        working-directory: react-wrapper
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish mfe-ui-kit-vue
+        working-directory: vue-wrapper
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

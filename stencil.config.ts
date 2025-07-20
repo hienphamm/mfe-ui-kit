@@ -1,6 +1,7 @@
 import { Config } from '@stencil/core';
 import { reactOutputTarget } from '@stencil/react-output-target';
 import tailwind, { tailwindHMR } from 'stencil-tailwind-plugin';
+import { vueOutputTarget } from '@stencil/vue-output-target';
 
 export const config: Config = {
   namespace: 'ui-kit',
@@ -31,6 +32,12 @@ export const config: Config = {
       includeDefineCustomElements: true,
       includePolyfills: false,
       customElementsDir: 'dist/ui-kit',
+    }),
+    vueOutputTarget({
+      componentCorePackage: 'mfe-ui-kit',
+      proxiesFile: './vue-wrapper/src/components.ts',
+      outDir: '../vue-wrapper/src/components.ts',
+      includeDefineCustomElements: true,
     }),
   ],
   plugins: [
