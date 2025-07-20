@@ -13,10 +13,12 @@
   },
   "peerDependencies": {
     "vue": "^3.0.0",
+    "vue-router": "^4.0.0",
     "mfe-ui-kit": "latest"
   },
   "dependencies": {},
   "devDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "@types/vue-router": "^2.0.0"
   }
 }
