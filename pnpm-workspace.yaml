@@ -2,3 +2,4 @@ packages:
   - .
   - react-wrapper
   - vue-wrapper
+  - angular-wrapper

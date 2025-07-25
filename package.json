@@ -31,7 +31,8 @@
     "build:stencil": "stencil build",
     "build:react": "pnpm --filter ./react-wrapper build",
     "build:vue": "pnpm --filter ./vue-wrapper build",
-    "build": "pnpm run build:stencil && pnpm run build:react && pnpm run build:vue",
+    "build:angular": "pnpm --filter ./angular-wrapper build",
+    "build": "pnpm run build:stencil && pnpm run build:react && pnpm run build:vue && pnpm run build:angular",
     "start": "stencil build --dev --watch --serve",
     "generate": "stencil generate"
   },
@@ -40,6 +41,7 @@
     "@stencil/postcss": "^2.1.0",
     "@stencil/react-output-target": "^1.2.0",
     "@stencil/vue-output-target": "^0.10.8",
+    "@stencil/angular-output-target": "^1.1.0",
     "@types/node": "^22.13.5",
     "puppeteer": "^24.3.0",
     "stencil-tailwind-plugin": "^2.0.5",

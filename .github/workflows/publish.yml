@@ -54,6 +54,11 @@ jobs:
           npm version $NEW_VERSION --no-git-tag-version --allow-same-version
           cd ..
 
+          # Update angular-wrapper
+          cd angular-wrapper
+          npm version $NEW_VERSION --no-git-tag-version --allow-same-version
+          cd ..
+
       - name: Publish packages
         run: |
           npm publish
