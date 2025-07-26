@@ -24,3 +24,10 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
+react-wrapper/src/components.ts/
+vue-wrapper/src/components.ts
+angular-wrapper/src/
+react-wrapper/pnpm-lock.yaml
+angular-wrapper/pnpm-lock.yaml
+vue-wrapper/pnpm-lock.yaml
+vue-wrapper/tsconfig.tsbuildinfo
