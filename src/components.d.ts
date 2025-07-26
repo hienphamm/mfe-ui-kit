@@ -40,6 +40,24 @@ export namespace Components {
     }
     interface UiDocs {
     }
+    interface UiInput {
+        /**
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * @default ''
+         */
+        "placeholder": string;
+        /**
+          * @default 'text'
+         */
+        "type": string;
+        /**
+          * @default ''
+         */
+        "value": string;
+    }
     interface UiModal {
         /**
           * @default true
@@ -70,6 +88,10 @@ export namespace Components {
 export interface UiButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLUiButtonElement;
+}
+export interface UiInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLUiInputElement;
 }
 export interface UiModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -105,6 +127,23 @@ declare global {
         prototype: HTMLUiDocsElement;
         new (): HTMLUiDocsElement;
     };
+    interface HTMLUiInputElementEventMap {
+        "valueChange": string;
+    }
+    interface HTMLUiInputElement extends Components.UiInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLUiInputElementEventMap>(type: K, listener: (this: HTMLUiInputElement, ev: UiInputCustomEvent<HTMLUiInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLUiInputElementEventMap>(type: K, listener: (this: HTMLUiInputElement, ev: UiInputCustomEvent<HTMLUiInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLUiInputElement: {
+        prototype: HTMLUiInputElement;
+        new (): HTMLUiInputElement;
+    };
     interface HTMLUiModalElementEventMap {
         "modalClosed": void;
         "modalOpened": void;
@@ -127,6 +166,7 @@ declare global {
         "ui-button": HTMLUiButtonElement;
         "ui-card": HTMLUiCardElement;
         "ui-docs": HTMLUiDocsElement;
+        "ui-input": HTMLUiInputElement;
         "ui-modal": HTMLUiModalElement;
     }
 }
@@ -166,6 +206,25 @@ declare namespace LocalJSX {
     }
     interface UiDocs {
     }
+    interface UiInput {
+        /**
+          * @default false
+         */
+        "disabled"?: boolean;
+        "onValueChange"?: (event: UiInputCustomEvent<string>) => void;
+        /**
+          * @default ''
+         */
+        "placeholder"?: string;
+        /**
+          * @default 'text'
+         */
+        "type"?: string;
+        /**
+          * @default ''
+         */
+        "value"?: string;
+    }
     interface UiModal {
         /**
           * @default true
@@ -198,6 +257,7 @@ declare namespace LocalJSX {
         "ui-button": UiButton;
         "ui-card": UiCard;
         "ui-docs": UiDocs;
+        "ui-input": UiInput;
         "ui-modal": UiModal;
     }
 }
@@ -208,6 +268,7 @@ declare module "@stencil/core" {
             "ui-button": LocalJSX.UiButton & JSXBase.HTMLAttributes<HTMLUiButtonElement>;
             "ui-card": LocalJSX.UiCard & JSXBase.HTMLAttributes<HTMLUiCardElement>;
             "ui-docs": LocalJSX.UiDocs & JSXBase.HTMLAttributes<HTMLUiDocsElement>;
+            "ui-input": LocalJSX.UiInput & JSXBase.HTMLAttributes<HTMLUiInputElement>;
             "ui-modal": LocalJSX.UiModal & JSXBase.HTMLAttributes<HTMLUiModalElement>;
         }
     }

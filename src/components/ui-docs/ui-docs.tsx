@@ -208,7 +208,7 @@ export class UiDocs {
             <h3 class="text-xl font-medium mb-3">Usage</h3>
             <pre class="bg-gray-800 text-gray-100 p-4 rounded-md overflow-x-auto">
               <code>
-{`const [showModal, setShowModal] = useState(false);
+  {`const [showModal, setShowModal] = useState(false);
 
 <ui-button
   label="Open Modal"
@@ -247,6 +247,55 @@ export class UiDocs {
             <ui-button onClick={() => this.showModal = false}>Close</ui-button>
           </div>
         </ui-modal>
+
+        {/*  Input Documentation*/}
+        <section class="mb-12">
+          <h2 class="text-2xl font-semibold mb-4">UI Input</h2>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <h3 class="text-xl font-medium mb-3">Props</h3>
+            <table class="min-w-full mb-6">
+              <thead>
+              <tr class="border-b">
+                <th class="text-left py-2">Prop</th>
+                <th class="text-left py-2">Type</th>
+                <th class="text-left py-2">Default</th>
+                <th class="text-left py-2">Description</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="border-b">
+                <td class="py-2">value</td>
+                <td class="py-2">string</td>
+                <td class="py-2">''</td>
+                <td class="py-2">Input value</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-2">placeholder</td>
+                <td class="py-2">string</td>
+                <td class="py-2">'Enter text'</td>
+                <td class="py-2">Placeholder text</td>
+              </tr>
+              </tbody>
+            </table>
+
+            <h3 class="text-xl font-medium mb-3">Examples</h3>
+            <div class="mb-6">
+              <ui-input placeholder="Enter your name" />
+            </div>
+
+            <h3 class="text-xl font-medium mb-3">Usage</h3>
+            <pre class="bg-gray-800 text-gray-100 p-4 rounded-md overflow-x-auto">
+              <code>
+  {`<ui-input
+    placeholder="Type here"
+    value={this.inputValue}
+    onValueChange={(event) => this.handleInputChange(event)}
+  />
+  `}
+              </code>
+            </pre>
+          </div>
+        </section>
       </div>
     );
   }
