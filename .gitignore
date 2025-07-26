@@ -26,7 +26,7 @@ UserInterfaceState.xcuserstate
 .env
 react-wrapper/src/components.ts/
 vue-wrapper/src/components.ts
-angular-wrapper/src/
+angular-wrapper/src/directives
 react-wrapper/pnpm-lock.yaml
 angular-wrapper/pnpm-lock.yaml
 vue-wrapper/pnpm-lock.yaml

@@ -7,10 +7,15 @@
     "strict": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true
   },
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true
-  }
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
 }

@@ -23,13 +23,14 @@
   },
   "peerDependencies": {
     "@angular/core": "^20.1.3",
-    "rxjs": "^7.8.2",
-    "mfe-ui-kit": "workspace:*"
+    "mfe-ui-kit": "workspace:*",
+    "rxjs": "^7.8.2"
   },
   "devDependencies": {
     "@angular/cli": "^20.1.3",
-    "ng-packagr": "^18.0.0",
-    "typescript": "^5.0.0",
-    "yargs": "17.7.2"
+    "ng-packagr": "^16.2.3",
+    "typescript": "5.4.5",
+    "yargs": "17.7.2",
+    "tslib": "^2.8.1"
   }
 }
