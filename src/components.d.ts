@@ -8,6 +8,10 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface UiButton {
         /**
+          * @default ''
+         */
+        "class": string;
+        /**
           * @default false
          */
         "disabled": boolean;
@@ -41,6 +45,10 @@ export namespace Components {
     interface UiDocs {
     }
     interface UiInput {
+        /**
+          * @default ''
+         */
+        "class": string;
         /**
           * @default false
          */
@@ -173,6 +181,10 @@ declare global {
 declare namespace LocalJSX {
     interface UiButton {
         /**
+          * @default ''
+         */
+        "class"?: string;
+        /**
           * @default false
          */
         "disabled"?: boolean;
@@ -207,6 +219,10 @@ declare namespace LocalJSX {
     interface UiDocs {
     }
     interface UiInput {
+        /**
+          * @default ''
+         */
+        "class"?: string;
         /**
           * @default false
          */

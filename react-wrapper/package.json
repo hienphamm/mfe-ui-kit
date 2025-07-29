@@ -1,15 +1,18 @@
 {
   "name": "mfe-ui-kit-react",
   "version": "0.0.1",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  ".": {
-    "import": "./dist/ui-kit/ui-kit.esm.js",
-    "require": "./dist/ui-kit/ui-kit.cjs.js"
-  },
-  "./components/*": {
-    "import": "./dist/ui-kit/*.js",
-    "types": "./dist/ui-kit/*.d.ts"
+  "main": "dist/components.js",
+  "types": "dist/components.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/components.js",
+      "require": "./dist/components.js",
+      "types": "./dist/components.d.ts"
+    },
+    "./components/*": {
+      "import": "./dist/*.js",
+      "types": "./dist/*.d.ts"
+    }
   },
   "peerDependencies": {
     "react": "^18.0.0",

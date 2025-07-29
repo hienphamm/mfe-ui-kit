@@ -1,15 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ESNext",
     "module": "ESNext",
-    "jsx": "react",
     "declaration": true,
     "outDir": "dist",
-    "declarationDir": "dist/types",
+    "rootDir": "src",
     "moduleResolution": "Node",
+    "jsx": "react-jsx",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "strict": true
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

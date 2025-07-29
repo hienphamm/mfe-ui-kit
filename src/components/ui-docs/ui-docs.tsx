@@ -1,4 +1,4 @@
-import { Component, h, State } from '@stencil/core';
+import {Component, h, State} from '@stencil/core';
 
 @Component({
   tag: 'ui-docs',
@@ -55,10 +55,13 @@ export class UiDocs {
 
             <h3 class="text-xl font-medium mb-3">Examples</h3>
             <div class="flex flex-wrap gap-4 mb-6">
-              <ui-button label="Default Button" />
-              <ui-button label="Primary" variant="primary" />
-              <ui-button label="Secondary" variant="secondary" />
-              <ui-button label="Disabled" disabled={true} />
+              <ui-button label="Default Button"/>
+              <ui-button label="Primary" variant="primary">
+                <span slot="icon-left" class="icon-class">★</span>
+                <span slot="icon-right">★</span>
+              </ui-button>
+              <ui-button label="Secondary" variant="secondary"/>
+              <ui-button label="Disabled" disabled={true}/>
             </div>
 
             <h3 class="text-xl font-medium mb-3">Usage</h3>
@@ -130,7 +133,7 @@ export class UiDocs {
                 shadow="lg"
               >
                 <div slot="actions">
-                  <ui-button variant="primary" label="Action" />
+                  <ui-button variant="primary" label="Action"/>
                 </div>
               </ui-card>
             </div>
@@ -280,7 +283,7 @@ export class UiDocs {
 
             <h3 class="text-xl font-medium mb-3">Examples</h3>
             <div class="mb-6">
-              <ui-input placeholder="Enter your name" />
+              <ui-input placeholder="Enter your name"/>
             </div>
 
             <h3 class="text-xl font-medium mb-3">Usage</h3>
