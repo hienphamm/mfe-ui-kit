@@ -16,7 +16,7 @@
   },
   "peerDependencies": {
     "react": "^18.0.0",
-    "mfe-ui-kit": "workspace:*"
+    "mfe-ui-kit": "latest"
   },
   "devDependencies": {
     "typescript": "^5.0.0",

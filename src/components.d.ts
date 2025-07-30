@@ -15,6 +15,9 @@ export namespace Components {
           * @default false
          */
         "disabled": boolean;
+        /**
+          * @default ''
+         */
         "label": string;
         /**
           * @default 'button'
@@ -188,6 +191,9 @@ declare namespace LocalJSX {
           * @default false
          */
         "disabled"?: boolean;
+        /**
+          * @default ''
+         */
         "label"?: string;
         "onOnClick"?: (event: UiButtonCustomEvent<void>) => void;
         /**
